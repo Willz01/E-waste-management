@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">E-waste management</string>
+    <string name="item_name_ex">CPU FAN</string>
+    <string name="upload_new_item">UPLOAD NEW ITEM</string>
 </resources>

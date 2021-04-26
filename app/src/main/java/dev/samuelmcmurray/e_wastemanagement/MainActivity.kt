@@ -1,9 +1,11 @@
 package dev.samuelmcmurray.e_wastemanagement
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -15,24 +17,26 @@ class MainActivity : AppCompatActivity() {
 
         toolbar = supportActionBar!!
         val bottomNavigation: BottomNavigationView = findViewById(R.id.navigationView)
-        val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.home_fragment -> {
-                    toolbar.title = "Home"
-                    val songsFragment = HomeFragment.newInstance()
-                    openFragment(songsFragment)
-                    return@OnNavigationItemSelectedListener true
+        val mOnNavigationItemSelectedListener =
+            BottomNavigationView.OnNavigationItemSelectedListener { item ->
+                when (item.itemId) {
+                    R.id.home_fragment -> {
+                        toolbar.title = "Home"
+                        val songsFragment = HomeFragment.newInstance()
+                        openFragment(songsFragment)
+                        return@OnNavigationItemSelectedListener true
+                    }
+                    R.id.upload_fragment -> {
+                        toolbar.title = "Upload"
+                        val songsFragment = UploadFragment.newInstance()
+                        openFragment(songsFragment)
+                        return@OnNavigationItemSelectedListener true
+                    }
                 }
-                R.id.upload_fragment -> {
-                    toolbar.title = "Upload"
-                    val songsFragment = UploadFragment.newInstance()
-                    openFragment(songsFragment)
-                    return@OnNavigationItemSelectedListener true
-                }
+                false
             }
-            false
-        }
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
 
     }
 
@@ -42,4 +46,5 @@ class MainActivity : AppCompatActivity() {
         transaction.addToBackStack(null)
         transaction.commit()
     }
+
 }
