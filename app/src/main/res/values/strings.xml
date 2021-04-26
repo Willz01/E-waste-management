@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">E-waste management</string>
+    <!-- HINTS -->
+    <string name="password_hint">Password</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="sign_up">Register</string>
+    <string name="email_hint">Email</string>
+    <string name="welcome_message">Let\'s change the world!</string>
+    <string name="reset">Reset</string>
+    <string name="cancel">Cancel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
