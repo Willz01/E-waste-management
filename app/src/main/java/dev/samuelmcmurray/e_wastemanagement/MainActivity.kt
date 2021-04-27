@@ -1,10 +1,12 @@
 package dev.samuelmcmurray.e_wastemanagement
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.os.Bundle    
 import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase  
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,4 +44,14 @@ class MainActivity : AppCompatActivity() {
         transaction.addToBackStack(null)
         transaction.commit()
     }
+  
+  public override fun onStart() {
+        super.onStart()
+        val currentUser = firebaseAuth.currentUser
+        if(currentUser != null){
+            // nav to home screen
+        } else {
+            // nav to login fragment
+        }
+  }
 }
