@@ -1,4 +1,3 @@
-
 # Created by https://www.toptal.com/developers/gitignore/api/android,kotlin,java,firebase,androidstudio
 # Edit at https://www.toptal.com/developers/gitignore?templates=android,kotlin,java,firebase,androidstudio
 
@@ -8,6 +7,20 @@
 *.aar
 *.ap_
 *.aab
+
+
+# Log files
+*.log
+
+# ser files
+*.ser
+
+# iml files
+*.iml
+
+# lock files
+*.lock
+
 
 # Files for the ART/Dalvik VM
 *.dex
