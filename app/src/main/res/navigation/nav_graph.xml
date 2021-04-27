@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="dev.samuelmcmurray.e_wastemanagement.HomeFragment"
+        android:label="Home" />
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="dev.samuelmcmurray.e_wastemanagement.UploadFragment"
+        android:label="Upload" />
+</navigation>

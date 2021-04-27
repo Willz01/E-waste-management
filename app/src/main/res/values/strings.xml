@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">E-waste management</string>
+    <string name="item_name_ex">CPU FAN</string>
+    <string name="upload_new_item">UPLOAD NEW ITEM</string>
     <!-- HINTS -->
     <string name="password_hint">Password</string>
     <string name="login">Login</string>
@@ -11,5 +13,4 @@
     <string name="cancel">Cancel</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
 </resources>
