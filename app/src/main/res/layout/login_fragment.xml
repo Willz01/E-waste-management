@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:background=""
+            android:background="@null"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"

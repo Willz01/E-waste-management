@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase  
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
@@ -54,11 +54,11 @@ class MainActivity : AppCompatActivity() {
   
   public override fun onStart() {
         super.onStart()
-        val currentUser = firebaseAuth.currentUser
-        if(currentUser != null){
+        /*val currentUser = firebaseAuth.currentUser*/
+        /*if(currentUser != null){
             // nav to home screen
         } else {
             // nav to login fragment
-        }
+        }*/
   }
 }
