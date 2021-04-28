@@ -19,7 +19,8 @@ class ItemUtils {
             "purchaseYear" to item.purchaseYear,
             "id" to item.id,
             "model" to item.model,
-            "image" to item.imageURI!!
+            "image" to item.imageURI,
+            "description" to item.description
         )
 
         var success = false
@@ -53,6 +54,7 @@ class ItemUtils {
                     val id = item.data["id"]
                     val model = item.data["model"]!!
                     val imageURI = item.data["image"]
+                    val description = item.data["description"]
 
                     itemsList.add(
                         Item(
@@ -60,7 +62,7 @@ class ItemUtils {
                             UID.toString(),
                             id.toString(),
                             purchaseYear.toString(),
-                            model.toString(), imageURI.toString()
+                            model.toString(), imageURI.toString(), description as String
                         )
                     )
 
