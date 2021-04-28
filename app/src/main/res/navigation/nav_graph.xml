@@ -8,7 +8,11 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="dev.samuelmcmurray.e_wastemanagement.HomeFragment"
-        android:label="Home" />
+        android:label="Home" >
+        <action
+            android:id="@+id/action_homeFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment" />
+    </fragment>
     <fragment
         android:id="@+id/uploadFragment"
         android:name="dev.samuelmcmurray.e_wastemanagement.UploadFragment"
