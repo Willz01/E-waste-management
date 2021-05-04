@@ -10,7 +10,7 @@
             type="dev.samuelmcmurray.e_wastemanagement.ui.auth.RegisterViewModel" />
         <variable
             name="uiController"
-            type="dev.samuelmcmurray.e_wastemanagement.ui.auth.RegisterIndividualFragment" />
+            type="dev.samuelmcmurray.e_wastemanagement.ui.auth.individual.RegisterIndividualFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
