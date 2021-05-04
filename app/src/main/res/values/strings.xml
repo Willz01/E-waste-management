@@ -13,4 +13,18 @@
     <string name="cancel">Cancel</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_name_hint">First Name</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="password_hint2">Confirm Password</string>
+    <string name="individual">Individual</string>
+    <string name="company">Company</string>
+    <string name="register">Register</string>
+    <string name="dob_hint">YYYY/MM/DD</string>
+    <string name="user_name_hint">Username</string>
+    <string name="location_hint">City</string>
+    <string name="country_hint">Country</string>
+    <string name="company_name">Company Name</string>
+    <string name="company_username_hint">Username EX: Company-Location</string>
+    <string name="store_id">Store ID</string>
+    <string name="phone_number">Phone Number</string>
 </resources>
