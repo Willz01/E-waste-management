@@ -3,3 +3,12 @@
     <external-files-path name="my_images" path="/" />
     <!--Android/data/dev.samuelmcmurray.e_wastemanagement/files/Pictures -->
 </paths>
+
+
+<!--
+    <?xml version="1.0" encoding="utf-8"?>
+<paths>
+<cache-path
+    name="cache_files"
+    path="." />
+</paths>-->

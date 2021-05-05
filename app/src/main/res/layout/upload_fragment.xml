@@ -43,7 +43,7 @@
                     android:id="@+id/uploaded_images"
                     android:visibility="gone"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="141dp" />
 
                 <ImageView
                     android:id="@+id/imageUpload"
