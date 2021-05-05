@@ -42,7 +42,8 @@ class HomeFragment : Fragment() {
 
     private fun setUpRecyclerView(itemsList: ArrayList<Item>) {
         val recyclerView = requireView().findViewById<RecyclerView>(R.id.upload_rv)
-        val recyclerViewAdapter = RecyclerViewAdapter(requireContext(), itemsList as List<Item>)
+        val recyclerViewAdapter =
+            this.view?.let { RecyclerViewAdapter(requireContext(), itemsList as List<Item>, it) }
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         recyclerView.adapter = recyclerViewAdapter
     }

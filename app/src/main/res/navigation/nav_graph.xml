@@ -12,9 +12,22 @@
         <action
             android:id="@+id/action_homeFragment_to_uploadFragment"
             app:destination="@id/uploadFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_itemFragment"
+            app:destination="@id/itemFragment"
+            app:enterAnim="@animator/scale_with_alpha" />
     </fragment>
     <fragment
         android:id="@+id/uploadFragment"
         android:name="dev.samuelmcmurray.e_wastemanagement.ui.upload.UploadFragment"
         android:label="Upload" />
+    <fragment
+        android:id="@+id/itemFragment"
+        android:name="dev.samuelmcmurray.e_wastemanagement.ui.itemDetail.ItemFragment"
+        android:label="fragment_item"
+        tools:layout="@layout/fragment_item" >
+        <argument
+            android:name="Item"
+            app:argType="dev.samuelmcmurray.e_wastemanagement.data.model.Item" />
+    </fragment>
 </navigation>
