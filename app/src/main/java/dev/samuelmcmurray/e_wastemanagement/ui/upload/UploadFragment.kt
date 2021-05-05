@@ -128,7 +128,8 @@ class UploadFragment : Fragment() {
     }
 
     private fun recyclerDisplay() {
-
+        imageView.visibility = View.GONE
+        uploadImagesRecyclerView.visibility = View.VISIBLE
         val imageAdapter = ImageAdapter(uploadedImagesUris, requireContext())
         uploadImagesRecyclerView.apply {
             adapter = imageAdapter
@@ -141,8 +142,6 @@ class UploadFragment : Fragment() {
         registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
             if (success) {
                 //uploadedImagesUris.add(imageUri)
-                imageView.visibility = View.GONE
-                uploadImagesRecyclerView.visibility = View.VISIBLE
                 recyclerDisplay()
                 // imageView.setImageURI(imageUri)
             } else {
@@ -224,7 +223,16 @@ class UploadFragment : Fragment() {
 
         if (requestCode == UPLOAD_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
             imageUri = data.data!!
-            imageView.setImageURI(imageUri)
+            /**
+             * This will depend how we want to handle it
+             * 1 - we can make each image in the rv have a remove button
+             * 2 - or entirely clear the rv list, but in some way. - the way done below will clear the list
+             * every time the button is clicked leaving the rv with only on image.
+             */
+            // uploadedImagesUris.clear()
+            uploadedImagesUris.add(imageUri)
+            recyclerDisplay()
+            // imageView.setImageURI(imageUri)
         } else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
 
             val imageUri = data?.data
