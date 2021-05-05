@@ -5,8 +5,7 @@
 
     <data
         android:layout_width="6dp"
-        android:layout_height="6dp">
-    </data>
+        android:layout_height="6dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout"
@@ -104,7 +103,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginLeft="8dp"
-                            android:text="Take new photo"
+                            android:text="@string/take_new_photo"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent" />
 
@@ -129,7 +128,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
                             android:layout_marginRight="8dp"
-                            android:text="Add existing image"
+                            android:text="@string/add_existing_image"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -139,9 +138,8 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayout"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColorHint="@color/black"
                         app:layout_constraintBottom_toTopOf="@+id/textInputLayout3"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -152,8 +150,8 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editTextTitle"
                             android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:hint="Title"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/title"
                             android:inputType="text"
                             android:textColorHint="@color/black"
                             android:textSize="16sp" />
@@ -163,11 +161,10 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayout3"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:textColorHint="@color/black"
-                        app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
+                        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent">
@@ -176,20 +173,50 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editTextModel"
                             android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:hint="model"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/model"
                             android:inputType="date|text"
                             android:textColorHint="@color/black"
                             android:textSize="16sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <RadioGroup
+                        android:id="@+id/radioGroup"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <RadioButton
+                            android:id="@+id/phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/phone_laptop" />
+
+                        <RadioButton
+                            android:id="@+id/computerPart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/computer_part" />
+
+                        <RadioButton
+                            android:id="@+id/other"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/other" />
+
+                    </RadioGroup>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayout2"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
                         android:textColorHint="@color/black"
                         app:layout_constraintBottom_toTopOf="@+id/buttonUpload"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -199,8 +226,8 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editTextDescription"
                             android:layout_width="match_parent"
-                            android:layout_height="90dp"
-                            android:hint="description"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/description"
                             android:inputType="textMultiLine"
                             android:textColorHint="@color/black"
                             android:textSize="16sp"

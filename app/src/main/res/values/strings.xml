@@ -27,4 +27,12 @@
     <string name="company_username_hint">Username EX: Company-Location</string>
     <string name="store_id">Store ID</string>
     <string name="phone_number">Phone Number</string>
+    <string name="add_existing_image">Add existing image</string>
+    <string name="take_new_photo">Take new photo</string>
+    <string name="title">Title</string>
+    <string name="model">model</string>
+    <string name="phone_laptop">Phone/Laptop</string>
+    <string name="computer_part">Computer part</string>
+    <string name="other">Other</string>
+    <string name="description">description</string>
 </resources>

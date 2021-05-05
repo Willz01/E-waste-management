@@ -14,7 +14,7 @@ class ImageAdapter(var urls: ArrayList<Uri>, var context: Context) :
     RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
 
 
-    inner class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var image: ImageView = itemView.findViewById(R.id.ivImage)
     }
 
@@ -25,7 +25,7 @@ class ImageAdapter(var urls: ArrayList<Uri>, var context: Context) :
     }
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
-       val url = urls[position]
+        val url = urls[position]
         Glide.with(holder.itemView).load(url).into(holder.image)
     }
 

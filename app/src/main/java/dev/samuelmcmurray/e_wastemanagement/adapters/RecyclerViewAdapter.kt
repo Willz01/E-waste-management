@@ -1,6 +1,7 @@
 package dev.samuelmcmurray.e_wastemanagement.adapters
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +30,7 @@ class RecyclerViewAdapter(private var context: Context, private var items: List<
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemName.text = items[position].name
+        // holder.image.setImageURI(Uri.parse(items[position].image1))
         //Glide.with(context).load(items[position].imageURI).into(holder.image)
 
         // click on cardView should load a new fragment with more info on the item
