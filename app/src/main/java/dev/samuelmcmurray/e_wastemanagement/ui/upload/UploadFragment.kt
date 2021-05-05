@@ -16,10 +16,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.content.FileProvider
@@ -217,6 +214,7 @@ class UploadFragment : Fragment() {
     }
 
 
+    @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -231,6 +229,7 @@ class UploadFragment : Fragment() {
              */
             // uploadedImagesUris.clear()
             uploadedImagesUris.add(imageUri)
+            requireView().findViewById<TextView>(R.id.textView3).text = "Add more images"
             recyclerDisplay()
             // imageView.setImageURI(imageUri)
         } else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
