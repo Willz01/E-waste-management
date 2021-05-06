@@ -11,6 +11,8 @@ import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import dev.samuelmcmurray.e_wastemanagement.ui.home.HomeFragment
+import dev.samuelmcmurray.e_wastemanagement.ui.upload.UploadFragment
 
 private const val TAG = "MainActivity"
 class MainActivity : AppCompatActivity() {
