@@ -1,4 +1,4 @@
-package dev.samuelmcmurray.e_wastemanagement.ui.auth
+package dev.samuelmcmurray.e_wastemanagement.ui.auth.company
 
 import android.app.Activity
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer
 import com.google.firebase.auth.FirebaseUser
 import dev.samuelmcmurray.e_wastemanagement.R
 import dev.samuelmcmurray.e_wastemanagement.databinding.RegisterCompanyFragmentBinding
+import dev.samuelmcmurray.e_wastemanagement.ui.auth.RegisterViewModel
 import java.util.concurrent.Executors
 
 private const val TAG = "RegisterCompanyFragment"

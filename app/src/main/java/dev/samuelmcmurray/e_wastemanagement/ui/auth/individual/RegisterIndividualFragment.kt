@@ -1,4 +1,4 @@
-package dev.samuelmcmurray.e_wastemanagement.ui.auth
+package dev.samuelmcmurray.e_wastemanagement.ui.auth.individual
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -4,12 +4,13 @@
     android:id="@+id/cardview_clickable"
     android:layout_width="150dp"
     android:layout_height="190dp"
-    android:layout_margin="5dp"
+    android:layout_margin="20dp"
     android:clickable="true"
     android:focusable="true"
     android:padding="10dp"
     android:foreground="?android:attr/selectableItemBackground"
-    cardview:cardCornerRadius="14dp">
+    cardview:cardCornerRadius="14dp"
+    cardview:cardElevation="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:background="@color/black"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/item_image_1" />
 
         <TextView
             android:id="@+id/item_name"
