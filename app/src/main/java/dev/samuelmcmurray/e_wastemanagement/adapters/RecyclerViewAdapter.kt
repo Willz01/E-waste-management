@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.samuelmcmurray.e_wastemanagement.R
 import dev.samuelmcmurray.e_wastemanagement.data.model.Item
+import dev.samuelmcmurray.e_wastemanagement.ui.itemDetail.ItemFragment
 
 
 class RecyclerViewAdapter(
@@ -41,10 +43,11 @@ class RecyclerViewAdapter(
 
         // click on cardView should load a new fragment with more info on the item
         holder.cardViewItem.setOnClickListener { v ->
-           /* val item = items[position]
-            val action = HomeFragmentDirections.actionHomeFragmentToItemFragment(item)
-            Navigation.findNavController(v).navigate(action)*/
-
+            val item = items[position]
+            val appCompatActivity: AppCompatActivity = view.context as AppCompatActivity
+            val itemFragment = ItemFragment(item)
+            appCompatActivity.supportFragmentManager.beginTransaction()
+                .replace(R.id.homeFrag, itemFragment).addToBackStack(null).commit()
         }
     }
 
