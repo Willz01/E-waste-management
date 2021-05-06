@@ -62,7 +62,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <RadioButton
+                    <com.google.android.material.radiobutton.MaterialRadioButton
                         android:id="@+id/individualRadioButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
                         android:padding="10dp"
                         android:text="@string/individual" />
 
-                    <RadioButton
+                    <com.google.android.material.radiobutton.MaterialRadioButton
                         android:id="@+id/companyRadioButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -82,14 +82,20 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/buttonLogin"
+                    android:id="@+id/buttonRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:text="@string/register" />
 
-
+                <Button
+                    android:id="@+id/buttonCancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/cancel" />
 
             </LinearLayout>
 
