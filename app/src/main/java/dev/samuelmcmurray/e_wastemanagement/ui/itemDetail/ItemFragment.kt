@@ -13,21 +13,16 @@ import dev.samuelmcmurray.e_wastemanagement.data.model.Item
 
 class ItemFragment(var item: Item) : Fragment() {
 
-    lateinit var itemName: TextView
-    lateinit var itemModel: TextView
-    lateinit var itemDescription: TextView
-    lateinit var itemType: TextView
+    private lateinit var itemName: TextView
+    private lateinit var itemModel: TextView
+    private lateinit var itemDescription: TextView
+    private lateinit var itemType: TextView
 
-    lateinit var itemImage1: ImageView
-    lateinit var itemImage2: ImageView
-    lateinit var itemImage3: ImageView
-    lateinit var itemImage4: ImageView
+    private lateinit var itemImage1: ImageView
+    private lateinit var itemImage2: ImageView
+    private lateinit var itemImage3: ImageView
+    private lateinit var itemImage4: ImageView
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
