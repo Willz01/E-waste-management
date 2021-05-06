@@ -113,35 +113,51 @@ class RegisterRepository {
     }
 
     fun createCompanyUser(companyName: String, userName: String, storeID: String,
-                          email: String, phoneNumber: String, country: String, city: String) {
+                          email: String, address: String, phoneNumber: String, country: String,
+                          city: String, hasRecycling: Boolean, takesMobiles: Boolean,
+                          takesComponents: Boolean, takesOther: Boolean, websiteURL: String) {
         var uid = firebaseAuth.currentUser?.uid
         while (uid == null) {
             //TODO: fix so it cant go into an infinite loop
             uid = firebaseAuth.currentUser?.uid
         }
-
+        val about = ""
         val companyUser =
             CompanyUser(
                 uid,
                 companyName,
+                about,
                 userName,
                 storeID,
                 email,
+                address,
                 phoneNumber,
                 country,
                 city,
-                false
+                hasRecycling,
+                false,
+                takesMobiles,
+                takesComponents,
+                takesOther,
+                websiteURL
             )
 
         val user = hashMapOf(
             "companyName" to companyName,
+            "about" to about,
             "userName" to userName,
             "storeID" to storeID,
             "email" to email,
+            "address" to address,
             "phoneNumber" to phoneNumber,
             "country" to country,
             "city" to city,
-            "hasImage" to false
+            "hasRecycling" to hasRecycling,
+            "hasImage" to false,
+            "takesMobiles" to takesMobiles,
+            "takesComponents" to takesComponents,
+            "takesOther" to takesOther,
+            "websiteURL" to websiteURL
         )
         Log.d(TAG, "createCompanyUser: $user")
 

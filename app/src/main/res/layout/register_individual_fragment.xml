@@ -112,12 +112,16 @@
                         android:textSize="16sp"
                         android:focusable="true" />
 
-                    <CalendarView
+                    <DatePicker
                         android:id="@+id/calendarView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:visibility="visible" />
+                        android:headerBackground="@color/purple_500"
+                        android:isScrollContainer="true"
+                        android:nestedScrollingEnabled="true"
+                        android:visibility="visible"
+                        android:yearListSelectorColor="@color/white" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

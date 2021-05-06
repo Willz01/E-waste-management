@@ -8,7 +8,6 @@ import com.google.firebase.auth.FirebaseUser
 import dev.samuelmcmurray.e_wastemanagement.data.repository.RegisterRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -20,7 +19,6 @@ class RegisterViewModel : AndroidViewModel {
     var loggedOutLiveData : MutableLiveData<Boolean>
     var userCreatedLiveData: MutableLiveData<Boolean>
     var emailSentLiveData: MutableLiveData<Boolean>
-    val channel = Channel<FirebaseUser>()
 
     constructor(application: Application) : super(application) {
         this.registerRepository = RegisterRepository(application)
@@ -57,7 +55,9 @@ class RegisterViewModel : AndroidViewModel {
     }
 
     fun registerCompanyUser(companyName: String, userName: String, storeID: String, email: String,
-                            phoneNumber: String, country: String, city: String, password: String) {
+                            address: String, phoneNumber: String, country: String, city: String,
+                            password: String, hasRecycling: Boolean, takesMobiles: Boolean,
+                            takesComponents: Boolean, takesOther: Boolean, websiteURL: String) {
         myCoroutineScope.launch {
             try {
                 registerUser(email, password)
@@ -67,7 +67,8 @@ class RegisterViewModel : AndroidViewModel {
         }
         myCoroutineScope.launch {
             try {
-                createCompanyUser(companyName, userName, storeID, email, phoneNumber, country, city)
+                createCompanyUser(companyName, userName, storeID, email, address, phoneNumber,
+                    country, city, hasRecycling, takesMobiles, takesComponents, takesOther, websiteURL)
             } catch(e: Exception) {
                 Log.d(TAG, "register: $e")
             }
@@ -97,9 +98,12 @@ class RegisterViewModel : AndroidViewModel {
         registerRepository.createIndividualUser(firstName, lastName, userName, email, city, country, dob)
     }
 
-    private suspend fun createCompanyUser(companyName: String, userName: String, storeID: String, email: String,
-                                          phoneNumber: String, country: String, city: String) {
+    private suspend fun createCompanyUser(companyName: String, userName: String, storeID: String,
+                                          email: String, address: String, phoneNumber: String, country: String,
+                                          city: String, hasRecycling: Boolean, takesMobiles: Boolean,
+                                          takesComponents: Boolean, takesOther: Boolean, websiteURL: String) {
         delay(500)
-        registerRepository.createCompanyUser(companyName, userName, storeID, email, phoneNumber, country, city)
+        registerRepository.createCompanyUser(companyName, userName, storeID, email, address,
+            phoneNumber, country, city, hasRecycling, takesMobiles, takesComponents, takesOther, websiteURL)
     }
 }

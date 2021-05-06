@@ -29,11 +29,13 @@
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="60dp"
             android:background="@color/white"
+            android:nestedScrollingEnabled="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="1.0">
 
 
             <LinearLayout
@@ -41,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp"
+                android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -108,7 +111,7 @@
                         android:hint="@string/store_id"
                         android:inputType="text"
                         android:textColorHint="@color/black"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -168,6 +171,50 @@
 
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextWebsite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/website"
+                        android:inputType="text"
+                        android:textColorHint="@color/black"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:textColorHint="@color/black">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/address"
+                        android:inputType="text"
+                        android:textColorHint="@color/black"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:textColorHint="@color/black">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editTextCity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -207,8 +254,137 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="8dp"
-                    app:endIconMode="password_toggle"
-                    android:textColorHint="@color/black">
+                    android:textColor="@color/black">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textViewHasRecycling"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hasRecycling"
+                        android:inputType="text"
+                        android:textColorHint="@color/black"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/yesRadioButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:checked="false"
+                            android:padding="8dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="@string/yes" />
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/noRadioButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="@string/no" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/black">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textWhatDevices"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/whatDevices"
+                        android:inputType="text"
+                        android:textColorHint="@color/black"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/mobileRadio"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:checked="false"
+                            android:padding="8dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="@string/mobile" />
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/desktopRadio"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:checked="false"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="@string/desktop"/>
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/otherRadio"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:checked="false"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="@string/other"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:textColorHint="@color/black"
+                    app:endIconMode="password_toggle">
 
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -230,8 +406,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="8dp"
-                    app:endIconMode="password_toggle"
-                    android:textColorHint="@color/black">
+                    android:textColorHint="@color/black"
+                    app:endIconMode="password_toggle">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/editTextPassword2"
@@ -248,7 +424,7 @@
 
         </ScrollView>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonCancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -262,7 +438,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonSignUp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

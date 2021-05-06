@@ -12,6 +12,8 @@ import androidx.databinding.DataBindingUtil.inflate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import dev.samuelmcmurray.e_wastemanagement.R
 import dev.samuelmcmurray.e_wastemanagement.databinding.LoginFragmentBinding
 
@@ -24,6 +26,8 @@ class LoginFragment : Fragment() {
 
     private lateinit var viewModel: LoginViewModel
     private lateinit var binding: LoginFragmentBinding
+    private lateinit var navHostFragment: NavHostFragment
+    private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +35,10 @@ class LoginFragment : Fragment() {
     ): View? {
         binding = inflate(inflater, R.layout.login_fragment, container, false)
         binding.lifecycleOwner = this
+
+        navHostFragment = requireActivity().supportFragmentManager.
+        findFragmentById(R.id.container) as NavHostFragment
+        navController = navHostFragment.navController
 
         return binding.root
     }
@@ -53,11 +61,11 @@ class LoginFragment : Fragment() {
         }
 
         registerText.setOnClickListener {
-            //nav to register fragment
+            navController.navigate(R.id.action_loginFragment_to_userTypeFragment)
         }
 
         forgotPasswordText.setOnClickListener {
-            //nav to forgot password fragment
+            navController.navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
         }
     }
 

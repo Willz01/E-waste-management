@@ -11,6 +11,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import dev.samuelmcmurray.e_wastemanagement.R
 import dev.samuelmcmurray.e_wastemanagement.databinding.FragmentForgotPasswordBinding
 
@@ -22,6 +24,8 @@ class ForgotPasswordFragment : Fragment() {
 
     private lateinit var binding: FragmentForgotPasswordBinding
     private lateinit var viewModel: LoginViewModel
+    private lateinit var navHostFragment: NavHostFragment
+    private lateinit var navController: NavController
 
 
     override fun onCreateView(
@@ -32,6 +36,9 @@ class ForgotPasswordFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_forgot_password, container, false)
         binding.lifecycleOwner = this
 
+        navHostFragment = requireActivity().supportFragmentManager.
+        findFragmentById(R.id.container) as NavHostFragment
+        navController = navHostFragment.navController
 
         return binding.root
     }
@@ -43,13 +50,14 @@ class ForgotPasswordFragment : Fragment() {
         val buttonReset = binding.buttonReset
 
         buttonCancel.setOnClickListener {
-            //nav to login fragment
+            navController.navigate(R.id.action_forgotPasswordFragment_to_loginFragment)
         }
 
         buttonReset.setOnClickListener {
             val emailText = binding.editTextEmailAddress
             val email = emailText.text.toString().trim()
             resetPassword(email)
+            navController.navigate(R.id.action_forgotPasswordFragment_to_loginFragment)
         }
     }
 
