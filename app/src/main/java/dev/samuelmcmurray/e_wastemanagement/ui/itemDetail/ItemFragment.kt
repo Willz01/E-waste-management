@@ -49,31 +49,29 @@ class ItemFragment(var item: Item) : Fragment() {
 
         // images
 
-        if (item.image1.isNullOrEmpty()){
+        try {
+            itemImage1.setImageURI(Uri.parse(item.image1))
+        } catch (e: Exception) {
             itemImage1.visibility = View.GONE
-        }else{
-            Glide.with(requireContext()).load(Uri.parse(item.image1)).into(itemImage1)
         }
 
-        if (item.image2.isNullOrEmpty()){
+        try {
+            itemImage2.setImageURI(Uri.parse(item.image2))
+        } catch (e: Exception) {
             itemImage2.visibility = View.GONE
-        }else{
-            Glide.with(requireContext()).load(Uri.parse(item.image2)).into(itemImage2)
         }
 
-        if (item.image3.isNullOrEmpty()){
+        try {
+            itemImage3.setImageURI(Uri.parse(item.image3))
+        } catch (e: Exception) {
             itemImage3.visibility = View.GONE
-        }else{
-            Glide.with(requireContext()).load(Uri.parse(item.image3)).into(itemImage3)
         }
 
-        if (item.image4.isNullOrEmpty()){
+        try {
+            itemImage4.setImageURI(Uri.parse(item.image4))
+        } catch (e: Exception) {
             itemImage4.visibility = View.GONE
-        }else{
-            Glide.with(requireContext()).load(Uri.parse(item.image4)).into(itemImage4)
         }
-
-
 
         return view
     }

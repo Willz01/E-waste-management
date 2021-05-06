@@ -9,7 +9,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:background="@null"
@@ -17,7 +17,6 @@
         app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -151,7 +150,7 @@
 
                     <ImageView
                         android:id="@+id/image1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="286dp"
                         android:layout_marginBottom="5dp"
                         android:contentDescription="IMAGE 1"
@@ -162,28 +161,28 @@
                         android:id="@+id/image2"
                         android:layout_width="match_parent"
                         android:layout_height="286dp"
-                        android:layout_marginBottom="5dp"
-                        android:contentDescription="IMAGE 2"
                         android:scaleType="fitXY"
-                        android:src="@drawable/login_background" />
+                        android:src="@drawable/login_background"
+                        android:contentDescription="IMAGE 2"
+                        android:layout_marginBottom="5dp"/>
 
                     <ImageView
                         android:id="@+id/image3"
                         android:layout_width="match_parent"
                         android:layout_height="286dp"
-                        android:layout_marginBottom="5dp"
-                        android:contentDescription="IMAGE 3"
                         android:scaleType="fitXY"
-                        android:src="@drawable/login_background" />
+                        android:src="@drawable/login_background"
+                        android:contentDescription="IMAGE 3"
+                        android:layout_marginBottom="5dp"/>
 
                     <ImageView
                         android:id="@+id/image4"
                         android:layout_width="match_parent"
                         android:layout_height="286dp"
-                        android:layout_marginBottom="5dp"
-                        android:contentDescription="IMAGE 4"
                         android:scaleType="fitXY"
-                        android:src="@drawable/login_background" />
+                        android:src="@drawable/login_background"
+                        android:contentDescription="IMAGE 4"
+                        android:layout_marginBottom="5dp"/>
                 </LinearLayout>
             </ScrollView>
 
