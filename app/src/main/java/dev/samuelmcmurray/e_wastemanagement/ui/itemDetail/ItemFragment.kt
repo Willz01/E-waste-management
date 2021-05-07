@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import dev.samuelmcmurray.e_wastemanagement.R
 import dev.samuelmcmurray.e_wastemanagement.data.model.Item
 
@@ -47,6 +48,7 @@ class ItemFragment(var item: Item) : Fragment() {
         itemDescription.text = item.description
 
         // images
+
         try {
             itemImage1.setImageURI(Uri.parse(item.image1))
         } catch (e: Exception) {
@@ -70,7 +72,6 @@ class ItemFragment(var item: Item) : Fragment() {
         } catch (e: Exception) {
             itemImage4.visibility = View.GONE
         }
-
 
         return view
     }

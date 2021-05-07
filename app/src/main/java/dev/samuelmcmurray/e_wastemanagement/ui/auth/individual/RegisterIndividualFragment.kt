@@ -18,6 +18,8 @@ import androidx.navigation.fragment.NavHostFragment
 import com.google.firebase.auth.FirebaseUser
 import dev.samuelmcmurray.e_wastemanagement.R
 import dev.samuelmcmurray.e_wastemanagement.databinding.RegisterIndividualFragmentBinding
+import dev.samuelmcmurray.e_wastemanagement.ui.auth.LoginFragment
+import dev.samuelmcmurray.e_wastemanagement.ui.auth.RegisterViewModel
 import java.util.concurrent.Executors
 
 private const val TAG = "RegisterIndividualFragm"

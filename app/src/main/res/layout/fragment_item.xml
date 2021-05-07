@@ -10,7 +10,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
         android:background="@null"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
@@ -149,12 +150,12 @@
 
                     <ImageView
                         android:id="@+id/image1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="286dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/login_background"
+                        android:layout_marginBottom="5dp"
                         android:contentDescription="IMAGE 1"
-                        android:layout_marginBottom="5dp"/>
+                        android:scaleType="fitXY"
+                        android:src="@drawable/login_background" />
 
                     <ImageView
                         android:id="@+id/image2"

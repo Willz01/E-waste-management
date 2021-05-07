@@ -204,7 +204,7 @@ class UploadFragment : Fragment() {
         } else
             Snackbar.make(
                 requireView(),
-                "PLease select an item type",
+                "Please select an item type",
                 Snackbar.LENGTH_SHORT
             ).show()
         return false
