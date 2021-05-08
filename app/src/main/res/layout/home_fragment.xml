@@ -8,9 +8,56 @@
     android:paddingEnd="10dp"
     android:paddingRight="10dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/upload_rv"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_smartphone_24" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:id="@+id/phoneButton"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_tablet_24"
+                android:layout_marginLeft="100dp"
+                android:layout_marginStart="100dp"/>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:id="@+id/tabletButton"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_laptop_24"
+                android:layout_marginLeft="100dp"
+                android:layout_marginStart="100dp"/>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:id="@+id/laptopButton"/>
+
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/upload_rv"
+            android:layout_width="match_parent"
+            android:layout_height="650dp"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
 </RelativeLayout>

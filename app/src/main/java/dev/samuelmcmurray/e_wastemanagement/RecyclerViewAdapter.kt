@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+
 
 class RecyclerViewAdapter(private var context: Context, private var items: List<Item>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
@@ -28,11 +30,24 @@ class RecyclerViewAdapter(private var context: Context, private var items: List<
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemName.text = items[position].name
         Glide.with(context).load(items[position].imageURI).into(holder.image)
+//        val ischecked = if (position === checkedposition) true else false
+//
+//        holder.tv.setText(productList.get(position))
+//        holder.tv.setChecked(lastSelectedPosition === position)
+//        selectionState.setOnClickListener(View.OnClickListener {
+//            lastSelectedPosition = getAdapterPosition()
+//            notifyDataSetChanged()
+//            Toast.makeText(this@OffersRecyclerViewAdapter.context,
+//                    "selected offer is " + offerName.getText(),
+//                    Toast.LENGTH_LONG).show()
+//        })
 
         // click on cardView should load a new fragment with more info on the item
-        holder.cardViewItem.setOnClickListener(object  : View.OnClickListener{
+
+
+        holder.cardViewItem.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-              //  TODO("Not yet implemented")
+                //  TODO("Not yet implemented")
             }
 
         })
