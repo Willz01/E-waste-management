@@ -21,6 +21,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -29,7 +30,6 @@ import com.google.firebase.auth.FirebaseAuth
 import dev.samuelmcmurray.e_wastemanagement.BuildConfig
 import dev.samuelmcmurray.e_wastemanagement.R
 import dev.samuelmcmurray.e_wastemanagement.adapters.ImageAdapter
-import dev.samuelmcmurray.e_wastemanagement.data.repository.UploadRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -49,6 +49,8 @@ class UploadFragment : Fragment() {
     private lateinit var itemModel: TextInputEditText
     private lateinit var itemDescription: TextInputEditText
     private lateinit var itemTypeRadio: RadioGroup
+
+    private lateinit var uploadViewModel: UploadViewModel
 
     private lateinit var auth: FirebaseAuth
 
@@ -84,14 +86,15 @@ class UploadFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // auth = FirebaseAuth.getInstance()
+        uploadViewModel = ViewModelProvider(requireActivity(), defaultViewModelProviderFactory).get(
+            UploadViewModel::class.java
+        )
 
         itemName = requireView().findViewById(R.id.editTextTitle)
         itemDescription = requireView().findViewById(R.id.editTextDescription)
         itemModel = requireView().findViewById(R.id.editTextModel)
         itemTypeRadio = requireView().findViewById(R.id.radioGroup)
         uploadImagesRecyclerView = requireView().findViewById<RecyclerView>(R.id.uploaded_images)
-
-        val uploadRepository = UploadRepository(requireContext())
 
         requireView().findViewById<Button>(R.id.buttonUpload).setOnClickListener {
             when (checkNull()) {
@@ -100,7 +103,7 @@ class UploadFragment : Fragment() {
                     val typeString =
                         requireView().findViewById<RadioButton>(selectedTypeId).text.toString()
 
-                    uploadRepository.uploadImageToStorage(
+                    uploadViewModel.addItem(
                         uploadedImagesUris,
                         uploadedImagesFiles,
                         itemName.text.toString(),
@@ -161,8 +164,6 @@ class UploadFragment : Fragment() {
             }
 
         }
-
-
     }
 
     /**

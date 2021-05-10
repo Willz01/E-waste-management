@@ -14,6 +14,7 @@ import dev.samuelmcmurray.e_wastemanagement.utils.ItemUtils
 import dev.samuelmcmurray.e_wastemanagement.utils.ItemsCallback
 
 private const val TAG = "HomeFragment"
+
 class HomeFragment : Fragment() {
 
     companion object {
@@ -33,8 +34,6 @@ class HomeFragment : Fragment() {
                 setUpRecyclerView(value)
             }
         })
-        // Log.d(TAG, "onViewCreated: ${itemsListFromFirebase.size} ")
-
 
         super.onViewCreated(view, savedInstanceState)
     }
