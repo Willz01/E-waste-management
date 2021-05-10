@@ -14,6 +14,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter
 import com.google.android.material.radiobutton.MaterialRadioButton
+import dev.samuelmcmurray.e_wastemanagement.adapters.RecyclerViewAdapter
+import dev.samuelmcmurray.e_wastemanagement.data.model.Item
+import dev.samuelmcmurray.e_wastemanagement.utils.ItemUtils
+import dev.samuelmcmurray.e_wastemanagement.utils.ItemsCallback
 
 private const val TAG = "HomeFragment"
 
@@ -32,36 +36,20 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-/*
-        val testItem1 = Item(
-            "Samsung A2",
-            "zs11sa",
-            "11231s",
-            null,
-            "Samsung",
-            null,
-            "Nice phone with camera issue"
-        )
+        //    var name: String,
+        //    var userID: String,
+        //    var id: String,
+        //    var type : String,
+        //    var purchaseYear: String?,
+        //    var image1: String?, var image2: String?, var image3: String?, var image4: String?,
+        //    var model: String,
+        //    var description: String
 
-        val testItem2 = Item(
-            "Samsung A3",
-            "xxcsd34",
-            "11231s",
-            null,
-            "Samsung",
-            null,
-            "Nice phone with camera charging issues"
-        )
-
-        ItemUtils.newInstance().addItemToFirebase(testItem1)
-        ItemUtils.newInstance().addItemToFirebase(testItem2)
-
-        */
         // load items from firebase and fill to recycler view
         // var itemsListFromFirebase = ArrayList<Item>()
         ItemUtils.newInstance().readItemsFromFirebase(object : ItemsCallback {
             override fun onCallback(value: ArrayList<Item>) {
-                setUpRecyclerView(value)
+                setUpRecyclerView(value, view)
             }
         })
         // Log.d(TAG, "onViewCreated: ${itemsListFromFirebase.size} ")
@@ -72,7 +60,7 @@ class HomeFragment : Fragment() {
 
         phoneButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                filterItems("phone")
+                filterItems("Phone", view)
                 phoneButton.isChecked = true
 
                 tabletButton.isChecked = false
@@ -83,7 +71,7 @@ class HomeFragment : Fragment() {
 
         tabletButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                filterItems("tablet")
+                filterItems("tablet", view)
                 tabletButton.isChecked = true
 
                 phoneButton.isChecked = false
@@ -94,7 +82,7 @@ class HomeFragment : Fragment() {
 
         laptopButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                filterItems("laptop")
+                filterItems("laptop", view)
                 laptopButton.isChecked = true
 
                 tabletButton.isChecked = false
@@ -108,26 +96,26 @@ class HomeFragment : Fragment() {
     }
 
 
-    private fun setUpRecyclerView(itemsList: ArrayList<Item>) {
+    private fun setUpRecyclerView(itemsList: ArrayList<Item>, view: View) {
         val recyclerView = requireView().findViewById<RecyclerView>(R.id.upload_rv)
-        val recyclerViewAdapter = RecyclerViewAdapter(requireContext(), itemsList as List<Item>)
+        val recyclerViewAdapter = RecyclerViewAdapter(requireContext(), itemsList as List<Item>, view)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         recyclerView.adapter = recyclerViewAdapter
     }
 
-    private fun filterItems(itemType: String) {
+    private fun filterItems(itemType: String, view: View) {
         val itemsToRemove = ArrayList<Item>()
         ItemUtils.newInstance().readItemsFromFirebase(object : ItemsCallback {
             override fun onCallback(value: ArrayList<Item>) {
                 value.forEach { item: Item ->
-                    if (!item.name.contains(itemType) || !item.description.contains(itemType)) {
+                    if (!item.type.contains(itemType)) {
                         itemsToRemove.add(item)
                     }
                 }
                 value.removeAll(itemsToRemove)
-                val recyclerViewAdapter = RecyclerViewAdapter(requireContext(), value as List<Item>)
+                val recyclerViewAdapter = RecyclerViewAdapter(requireContext(), value as List<Item>, view)
                 recyclerViewAdapter.notifyDataSetChanged()
-                setUpRecyclerView(value)
+                setUpRecyclerView(value, view)
             }
         })
     }
