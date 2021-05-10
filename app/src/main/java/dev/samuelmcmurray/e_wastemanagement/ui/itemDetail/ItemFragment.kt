@@ -48,27 +48,26 @@ class ItemFragment(var item: Item) : Fragment() {
         itemDescription.text = item.description
 
         // images
-
         try {
-            itemImage1.setImageURI(Uri.parse(item.image1))
+            Glide.with(requireContext()).load(Uri.parse(item.image1)).into(itemImage1)
         } catch (e: Exception) {
             itemImage1.visibility = View.GONE
         }
 
         try {
-            itemImage2.setImageURI(Uri.parse(item.image2))
+            Glide.with(requireContext()).load(Uri.parse(item.image2)).into(itemImage2)
         } catch (e: Exception) {
             itemImage2.visibility = View.GONE
         }
 
         try {
-            itemImage3.setImageURI(Uri.parse(item.image3))
+            Glide.with(requireContext()).load(Uri.parse(item.image3)).into(itemImage3)
         } catch (e: Exception) {
             itemImage3.visibility = View.GONE
         }
 
         try {
-            itemImage4.setImageURI(Uri.parse(item.image4))
+            Glide.with(requireContext()).load(Uri.parse(item.image4)).into(itemImage4)
         } catch (e: Exception) {
             itemImage4.visibility = View.GONE
         }

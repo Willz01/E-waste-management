@@ -21,6 +21,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -29,9 +30,6 @@ import com.google.firebase.auth.FirebaseAuth
 import dev.samuelmcmurray.e_wastemanagement.BuildConfig
 import dev.samuelmcmurray.e_wastemanagement.R
 import dev.samuelmcmurray.e_wastemanagement.adapters.ImageAdapter
-import dev.samuelmcmurray.e_wastemanagement.data.model.Item
-import dev.samuelmcmurray.e_wastemanagement.data.repository.UploadRepository
-import dev.samuelmcmurray.e_wastemanagement.utils.ItemUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -51,6 +49,8 @@ class UploadFragment : Fragment() {
     private lateinit var itemModel: TextInputEditText
     private lateinit var itemDescription: TextInputEditText
     private lateinit var itemTypeRadio: RadioGroup
+
+    private lateinit var uploadViewModel: UploadViewModel
 
     private lateinit var auth: FirebaseAuth
 
@@ -86,6 +86,9 @@ class UploadFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // auth = FirebaseAuth.getInstance()
+        uploadViewModel = ViewModelProvider(requireActivity(), defaultViewModelProviderFactory).get(
+            UploadViewModel::class.java
+        )
 
         itemName = requireView().findViewById(R.id.editTextTitle)
         itemDescription = requireView().findViewById(R.id.editTextDescription)
@@ -93,45 +96,24 @@ class UploadFragment : Fragment() {
         itemTypeRadio = requireView().findViewById(R.id.radioGroup)
         uploadImagesRecyclerView = requireView().findViewById<RecyclerView>(R.id.uploaded_images)
 
-        val uploadRepository = UploadRepository(requireContext())
-
         requireView().findViewById<Button>(R.id.buttonUpload).setOnClickListener {
             when (checkNull()) {
                 true -> {
                     val selectedTypeId = itemTypeRadio.checkedRadioButtonId
                     val typeString =
                         requireView().findViewById<RadioButton>(selectedTypeId).text.toString()
-                    val tempItem = Item(
+
+                    uploadViewModel.addItem(
+                        uploadedImagesUris,
+                        uploadedImagesFiles,
                         itemName.text.toString(),
-                        "currentUID",
-                        UUID.randomUUID().toString(),
-                        type =  typeString,
-                        "Not used for now",
-                        try {
-                            uploadedImagesUris[0].toString()
-                        } catch (e: IndexOutOfBoundsException) {
-                            null
-                        },
-                        try {
-                            uploadedImagesUris[1].toString()
-                        } catch (e: IndexOutOfBoundsException) {
-                            null
-                        },
-                        try {
-                            uploadedImagesUris[2].toString()
-                        } catch (e: IndexOutOfBoundsException) {
-                            null
-                        },
-                        try {
-                            uploadedImagesUris[3].toString()
-                        } catch (e: IndexOutOfBoundsException) {
-                            null
-                        },
+                        "CurrentID",
+                        UUID.randomUUID().toString(), typeString,
+                        "Not used now",
                         itemModel.text.toString(),
                         itemDescription.text.toString()
                     )
-                    ItemUtils.newInstance().addItemToFirebase(tempItem)
-                    uploadRepository.uploadImageToStorage(uploadedImagesUris, uploadedImagesFiles)
+
                     Snackbar.make(requireView(), "Item added!", Snackbar.LENGTH_SHORT).show()
 
                     // clear fields
@@ -182,8 +164,6 @@ class UploadFragment : Fragment() {
             }
 
         }
-
-
     }
 
     /**
@@ -192,10 +172,10 @@ class UploadFragment : Fragment() {
      */
     private fun checkNull(): Boolean {
         if (itemTypeRadio.checkedRadioButtonId != -1) {
-            return if (itemName.text.isNullOrEmpty() || itemDescription.text.isNullOrEmpty() || itemModel.text.isNullOrEmpty()) {
+            return if (itemName.text.isNullOrEmpty() || itemDescription.text.isNullOrEmpty() || itemModel.text.isNullOrEmpty() || imageView.visibility == View.VISIBLE) {
                 Snackbar.make(
                     requireView(),
-                    "Please fill all required fields",
+                    "Please fill all required fields and include at least 1 image",
                     Snackbar.LENGTH_SHORT
                 ).show()
                 false
@@ -373,7 +353,7 @@ class UploadFragment : Fragment() {
         ).apply {
             // Save a file: path for use with ACTION_VIEW intents
             currentPhotoPath = absolutePath
-            Log.d(TAG, "createImageFile: ${currentPhotoPath}")
+            Log.d(TAG, "createImageFile: $currentPhotoPath")
         }
     }
 }
