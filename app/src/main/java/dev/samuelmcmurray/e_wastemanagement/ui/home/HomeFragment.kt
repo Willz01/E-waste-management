@@ -1,19 +1,14 @@
-package dev.samuelmcmurray.e_wastemanagement
+package dev.samuelmcmurray.e_wastemanagement.ui.home
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AccelerateDecelerateInterpolator
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter
 import com.google.android.material.radiobutton.MaterialRadioButton
+import dev.samuelmcmurray.e_wastemanagement.R
 import dev.samuelmcmurray.e_wastemanagement.adapters.RecyclerViewAdapter
 import dev.samuelmcmurray.e_wastemanagement.data.model.Item
 import dev.samuelmcmurray.e_wastemanagement.utils.ItemUtils
@@ -60,7 +55,7 @@ class HomeFragment : Fragment() {
 
         phoneButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                filterItems("Phone", view)
+                filterItems("Phone/Laptop", view)
                 phoneButton.isChecked = true
 
                 tabletButton.isChecked = false
@@ -71,7 +66,7 @@ class HomeFragment : Fragment() {
 
         tabletButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                filterItems("tablet", view)
+                filterItems("Computer part", view)
                 tabletButton.isChecked = true
 
                 phoneButton.isChecked = false
@@ -82,7 +77,7 @@ class HomeFragment : Fragment() {
 
         laptopButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                filterItems("laptop", view)
+                filterItems("Other", view)
                 laptopButton.isChecked = true
 
                 tabletButton.isChecked = false
