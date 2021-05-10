@@ -14,11 +14,14 @@ import org.junit.Assert.*
 @RunWith(AndroidJUnit4::class)
 class FireBaseTests {
 
-    val appContext: Context = InstrumentationRegistry.getInstrumentation().targetContext
+    private val appContext: Context = InstrumentationRegistry.getInstrumentation().targetContext
 
-    val itemUtils = ItemUtils()
+    private val itemUtils = ItemUtils()
 
-    val testItem1 = Item(
+    /**
+     * Adding null images will cause an error in the recyclerview(null pointer exception in HomeFragment) on runtime
+     */
+    private val testItem1 = Item(
         "Samsung A2",
         "zs11sa",
         "2315",

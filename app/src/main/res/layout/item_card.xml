@@ -8,6 +8,7 @@
     android:clickable="true"
     android:focusable="true"
     android:padding="10dp"
+    cardview:cardMaxElevation="10dp"
     android:foreground="?android:attr/selectableItemBackground"
     cardview:cardCornerRadius="14dp"
     cardview:cardElevation="8dp">

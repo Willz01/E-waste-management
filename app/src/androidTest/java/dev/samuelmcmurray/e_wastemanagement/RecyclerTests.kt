@@ -13,11 +13,13 @@ import org.junit.Before
 
 @RunWith(AndroidJUnit4::class)
 class RecyclerTests {
-    val appContext: Context = InstrumentationRegistry.getInstrumentation().targetContext
-    val list = arrayListOf<Item>()
-    var recyclerViewAdapter = RecyclerViewAdapter(appContext, list, view = View(appContext))
+    private val appContext: Context = InstrumentationRegistry.getInstrumentation().targetContext
+    private val list = arrayListOf<Item>()
+    private var recyclerViewAdapter = RecyclerViewAdapter(appContext, list, view = View(appContext))
 
-
+    /**
+     * Adding null images will cause an error in the recyclerview(null pointer exception in HomeFragment) on runtime
+     */
     @Before
     fun initialize() {
         val testItem1 = Item(
@@ -54,7 +56,7 @@ class RecyclerTests {
 
     @Test
     fun useAppContext() {
-        assertEquals("dev.samuelmcmurray.e_wastemanagement", appContext.getPackageName())
+        assertEquals("dev.samuelmcmurray.e_wastemanagement", appContext.packageName)
     }
     @Test
     fun testSize() {
