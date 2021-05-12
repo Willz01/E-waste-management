@@ -12,12 +12,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import dev.samuelmcmurray.e_wastemanagement.ui.home.HomeFragment
+import dev.samuelmcmurray.e_wastemanagement.ui.profile.ProfileFragment
 import dev.samuelmcmurray.e_wastemanagement.ui.upload.UploadFragment
 
 private const val TAG = "MainActivity"
 class MainActivity : AppCompatActivity() {
 
-    lateinit var toolbar: ActionBar
+    private lateinit var toolbar: ActionBar
     private lateinit var navController: NavController
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var mNavView: NavigationView
@@ -41,6 +42,12 @@ class MainActivity : AppCompatActivity() {
                     R.id.upload_fragment -> {
                         toolbar.title = "Upload"
                         val songsFragment = UploadFragment.newInstance()
+                        openFragment(songsFragment)
+                        return@OnNavigationItemSelectedListener true
+                    }
+                    R.id.profileFragment -> {
+                        toolbar.title = "Profile"
+                        val songsFragment = ProfileFragment.newInstance()
                         openFragment(songsFragment)
                         return@OnNavigationItemSelectedListener true
                     }

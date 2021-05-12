@@ -1,72 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/homeFrag"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingLeft="10dp"
-    android:paddingTop="30dp"
+    android:paddingTop="10dp"
     android:paddingEnd="10dp"
     android:paddingRight="10dp">
 
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <Spinner
+        android:id="@+id/spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_baseline_smartphone_24" />
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/phoneButton"
-            android:layout_width="32dp"
-            android:layout_height="32dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="100dp"
-            android:layout_marginLeft="100dp"
-            android:src="@drawable/ic_baseline_tablet_24" />
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/tabletButton"
-            android:layout_width="32dp"
-            android:layout_height="32dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="100dp"
-            android:layout_marginLeft="100dp"
-            android:src="@drawable/ic_baseline_laptop_24" />
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/laptopButton"
-            android:layout_width="32dp"
-            android:layout_height="32dp" />
-
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/upload_rv"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.966" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
