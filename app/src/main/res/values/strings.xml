@@ -50,4 +50,21 @@
     <string name="mobile">Mobile Phones, Laptop Computers</string>
     <string name="desktop">Desktops, Computer Components</string>
     <string name="website">Website URL</string>
+    <string name="previously_uploaded_items">Previously uploaded items</string>
+    <string name="user_name">User name</string>
+    <string name="info">Info</string>
+    <string name="first_name">First name</string>
+    <string name="second_name">Second name</string>
+    <string name="data_of_birth">Data of birth</string>
+    <string name="city">City</string>
+    <string name="country">Country</string>
+    <string name="channel_name">Bid notification</string>
+
+
+    <string-array name="type_array">
+        <item>All</item>
+        <item>Phone/Laptop</item>
+        <item>Computer part</item>
+        <item>Others</item>
+    </string-array>
 </resources>

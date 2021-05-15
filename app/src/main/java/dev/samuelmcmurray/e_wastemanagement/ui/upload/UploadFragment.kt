@@ -99,6 +99,13 @@ class UploadFragment : Fragment() {
         requireView().findViewById<Button>(R.id.buttonUpload).setOnClickListener {
             when (checkNull()) {
                 true -> {
+
+                    // notification test
+                    /*  val notificationHandler: NotificationHandler =
+                          NotificationHandler(requireContext(), itemName.text.toString(), "A company")
+                      notificationHandler.callNotification()*/
+
+
                     val selectedTypeId = itemTypeRadio.checkedRadioButtonId
                     val typeString =
                         requireView().findViewById<RadioButton>(selectedTypeId).text.toString()

@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/uploadFragment"
-        android:name="dev.samuelmcmurray.e_wastemanagement.UploadFragment"
+        android:name="dev.samuelmcmurray.e_wastemanagement.ui.upload.UploadFragment"
         android:label="Upload" />
     <fragment
         android:id="@+id/loginFragment"
@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerCompanyFragment"
-        android:name="dev.samuelmcmurray.e_wastemanagement.ui.auth.RegisterCompanyFragment"
+        android:name="dev.samuelmcmurray.e_wastemanagement.ui.auth.company.RegisterCompanyFragment"
         android:label="RegisterCompanyFragment" >
         <action
             android:id="@+id/action_registerCompanyFragment_to_userTypeFragment"
@@ -59,7 +59,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerIndividualFragment"
-        android:name="dev.samuelmcmurray.e_wastemanagement.ui.auth.RegisterIndividualFragment"
+        android:name="dev.samuelmcmurray.e_wastemanagement.ui.auth.individual.RegisterIndividualFragment"
         android:label="RegisterIndividualFragment" >
         <action
             android:id="@+id/action_registerIndividualFragment_to_homeFragment"
@@ -80,4 +80,9 @@
         android:id="@+id/welcomeFragment"
         android:name="dev.samuelmcmurray.ui.welcome.WelcomeFragment"
         android:label="WelcomeFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="dev.samuelmcmurray.e_wastemanagement.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
