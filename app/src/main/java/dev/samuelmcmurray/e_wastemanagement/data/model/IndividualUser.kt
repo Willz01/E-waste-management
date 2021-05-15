@@ -11,5 +11,6 @@ class IndividualUser(
     var city: String,
     var hasImage: Boolean
 ) {
-
+    var userProfileImageURL = ""
+    var age = 0
 }

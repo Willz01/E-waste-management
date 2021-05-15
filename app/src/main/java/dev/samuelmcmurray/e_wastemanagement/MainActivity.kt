@@ -54,10 +54,10 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.layout.login_fragment || destination.id == R.layout.user_type_fragment
-                || destination.id == R.layout.register_company_fragment ||
-                    destination.id == R.layout.fragment_forgot_password ||
-                destination.id == R.layout.register_individual_fragment) {
+            if (destination.id == R.id.loginFragment || destination.id == R.id.userTypeFragment
+                || destination.id == R.id.registerCompanyFragment ||
+                    destination.id == R.id.forgotPasswordFragment ||
+                destination.id == R.id.registerIndividualFragment) {
                 supportActionBar?.hide()
                 bottomNavigation.visibility = View.GONE
             } else {
