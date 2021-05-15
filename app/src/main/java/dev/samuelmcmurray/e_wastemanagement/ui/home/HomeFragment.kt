@@ -52,7 +52,10 @@ class HomeFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        getUser()
+        if (CompanyUserSingleton.getInstance.companyUser == null &&
+                IndividualUserSingleton.getInstance.individualUser == null) {
+            getUser()
+        }
 
         //    var name: String,
         //    var userID: String,
