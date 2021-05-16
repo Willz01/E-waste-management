@@ -131,8 +131,8 @@ class HomeRepository {
     private fun getAge(dob: String) : Int {
         val parts = dob.split("-")
         val year = parts[2]
-        val day = parts[1]
-        val month = parts[0]
+        val month = parts[1]
+        val day = parts[0]
         return Period.between(
             LocalDate.of(year.toInt(), month.toInt(), day.toInt()),
             LocalDate.now()

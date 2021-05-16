@@ -30,6 +30,7 @@ import com.google.firebase.auth.FirebaseAuth
 import dev.samuelmcmurray.e_wastemanagement.BuildConfig
 import dev.samuelmcmurray.e_wastemanagement.R
 import dev.samuelmcmurray.e_wastemanagement.adapters.ImageAdapter
+import dev.samuelmcmurray.e_wastemanagement.data.singleton.IndividualUserSingleton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -110,16 +111,18 @@ class UploadFragment : Fragment() {
                     val typeString =
                         requireView().findViewById<RadioButton>(selectedTypeId).text.toString()
 
-                    uploadViewModel.addItem(
-                        uploadedImagesUris,
-                        uploadedImagesFiles,
-                        itemName.text.toString(),
-                        "CurrentID",
-                        UUID.randomUUID().toString(), typeString,
-                        "Not used now",
-                        itemModel.text.toString(),
-                        itemDescription.text.toString()
-                    )
+                    IndividualUserSingleton.getInstance.individualUser?.let { it1 ->
+                        uploadViewModel.addItem(
+                            uploadedImagesUris,
+                            uploadedImagesFiles,
+                            itemName.text.toString(),
+                            it1.uid,
+                            UUID.randomUUID().toString(), typeString,
+                            "Not used now",
+                            itemModel.text.toString(),
+                            itemDescription.text.toString()
+                        )
+                    }
 
                     Snackbar.make(requireView(), "Item added!", Snackbar.LENGTH_SHORT).show()
 
