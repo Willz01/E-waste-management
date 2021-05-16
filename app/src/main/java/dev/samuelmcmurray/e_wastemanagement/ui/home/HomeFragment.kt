@@ -62,10 +62,7 @@ class HomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         loadAll()
 
-        val phoneButton = binding.phoneButton
-        val tabletButton = binding.tabletButton
-        val laptopButton = binding.laptopButton
-      
+
         // spinner
         val spinner: Spinner = view.findViewById(R.id.spinner)
         ArrayAdapter.createFromResource(

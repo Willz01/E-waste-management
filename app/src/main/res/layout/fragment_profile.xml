@@ -20,17 +20,21 @@
 
     <TextView
         android:id="@+id/number_of_items"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:gravity="center"
         android:text="@string/info"
+        android:textColor="@color/browser_actions_bg_grey"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:background="@color/purple_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userName" />
 
     <LinearLayout
+        android:layout_marginTop="5dp"
         android:id="@+id/linearLayout2"
         android:layout_width="410dp"
         android:layout_height="0dp"
@@ -60,7 +64,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center" />
+                android:gravity="start" />
         </LinearLayout>
 
         <LinearLayout
@@ -82,7 +86,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center" />
+                android:gravity="start" />
         </LinearLayout>
 
         <LinearLayout
@@ -104,7 +108,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center" />
+                android:gravity="start" />
         </LinearLayout>
 
         <LinearLayout
@@ -127,7 +131,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center" />
+                android:gravity="start" />
         </LinearLayout>
 
         <LinearLayout
@@ -149,7 +153,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center" />
+                android:gravity="start" />
         </LinearLayout>
 
         <LinearLayout
@@ -171,7 +175,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center" />
+                android:gravity="start" />
         </LinearLayout>
 
         <TextView

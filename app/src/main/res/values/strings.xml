@@ -19,7 +19,7 @@
     <string name="individual">Individual</string>
     <string name="company">Company</string>
     <string name="register">Register</string>
-    <string name="dob_hint">YYYY/MM/DD</string>
+    <string name="dob_hint">DD-MM-YYYY</string>
     <string name="user_name_hint">Username</string>
     <string name="location_hint">City</string>
     <string name="country_hint">Country</string>

@@ -14,6 +14,8 @@ import dev.samuelmcmurray.e_wastemanagement.data.model.Item
 import dev.samuelmcmurray.e_wastemanagement.data.singleton.IndividualUserSingleton
 import dev.samuelmcmurray.e_wastemanagement.utils.ItemUtils
 import dev.samuelmcmurray.e_wastemanagement.utils.ItemsCallback
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class ProfileFragment : Fragment() {
@@ -54,8 +56,8 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // TODO : Will be null - actual user has to be parsed in from firebase
-        // userName.text = IndividualUserSingleton.getInstance.individualUser?.userName
+        userName.text = IndividualUserSingleton.getInstance.individualUser?.userName!!.capitalize(
+            Locale.ROOT)
         firstName.text = IndividualUserSingleton.getInstance.individualUser?.firstName
         secondName.text = IndividualUserSingleton.getInstance.individualUser?.lastName
         email.text = IndividualUserSingleton.getInstance.individualUser?.email
@@ -63,11 +65,8 @@ class ProfileFragment : Fragment() {
         city.text = IndividualUserSingleton.getInstance.individualUser?.city
         country.text = IndividualUserSingleton.getInstance.individualUser?.country
 
-        /**
-         * TODO : Will be null - actual user ID has to be parsed in from firebase
-         * USing "CurrentID" now to test
-         */
-        filterView("CurrentID", requireView())
+
+        filterView(UUID, requireView())
     }
 
 
