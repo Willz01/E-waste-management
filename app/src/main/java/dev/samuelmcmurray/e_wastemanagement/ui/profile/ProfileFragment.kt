@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -81,6 +82,9 @@ class ProfileFragment : Fragment() {
 
         when (IndividualUserSingleton.getInstance.individualUser == null) {
             false -> {
+                view.findViewById<ConstraintLayout>(R.id.profileFragmentIndividual).visibility =
+                    View.VISIBLE
+                view.findViewById<ConstraintLayout>(R.id.profileFragmentCompanyUser).visibility = View.GONE
                 // individual user
                 userName.text =
                     IndividualUserSingleton.getInstance.individualUser?.userName!!.capitalize(
@@ -97,6 +101,9 @@ class ProfileFragment : Fragment() {
                 filterView(UUID, requireView())
             }
             true -> {
+                view.findViewById<ConstraintLayout>(R.id.profileFragmentCompanyUser).visibility = View.VISIBLE
+                view.findViewById<ConstraintLayout>(R.id.profileFragmentIndividual).visibility =
+                    View.GONE
                 // company user
                 companyName.text =
                     CompanyUserSingleton.getInstance.companyUser?.companyName!!.capitalize(
