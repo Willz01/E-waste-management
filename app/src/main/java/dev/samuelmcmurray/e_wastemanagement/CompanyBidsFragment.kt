@@ -63,7 +63,7 @@ class CompanyBidsFragment : Fragment() {
                 } else {
                     textView.visibility = View.GONE
                     val recyclerViewAdapter =
-                        CompanyBidsAdapter(requireContext(), value as List<Item>)
+                        CompanyBidsAdapter(requireContext(), value as List<Item>, requireView())
                     recyclerViewAdapter.notifyDataSetChanged()
                     setUpRecyclerView(value, requireView())
                 }
@@ -75,7 +75,7 @@ class CompanyBidsFragment : Fragment() {
     private fun setUpRecyclerView(itemsList: ArrayList<Item>, view: View) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.bided_Items)
         val recyclerViewAdapter =
-            CompanyBidsAdapter(requireContext(), itemsList as List<Item>)
+            CompanyBidsAdapter(requireContext(), itemsList as List<Item>, recyclerView)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 1)
         recyclerView.adapter = recyclerViewAdapter
     }

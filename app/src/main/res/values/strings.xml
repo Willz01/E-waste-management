@@ -61,11 +61,11 @@
     <string name="channel_name">Bid notification</string>
     <string name="companyUserBoomer">"This view is available for only individual users"</string>
 
-
     <string-array name="type_array">
         <item>All</item>
         <item>Phone/Laptop</item>
         <item>Computer part</item>
         <item>Others</item>
     </string-array>
+
 </resources>
