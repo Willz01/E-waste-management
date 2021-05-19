@@ -85,4 +85,9 @@
         android:name="dev.samuelmcmurray.e_wastemanagement.ui.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/companyBidsFragment"
+        android:name="dev.samuelmcmurray.e_wastemanagement.CompanyBidsFragment"
+        android:label="fragment_company_bids"
+        tools:layout="@layout/fragment_company_bids" />
 </navigation>

@@ -16,6 +16,7 @@ import dev.samuelmcmurray.e_wastemanagement.ui.profile.ProfileFragment
 import dev.samuelmcmurray.e_wastemanagement.ui.upload.UploadFragment
 
 private const val TAG = "MainActivity"
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var toolbar: ActionBar
@@ -51,9 +52,17 @@ class MainActivity : AppCompatActivity() {
                         openFragment(songsFragment)
                         return@OnNavigationItemSelectedListener true
                     }
+                    R.id.companyBidsFragment -> {
+                        toolbar.title = "Company bids"
+                        val songsFragment = CompanyBidsFragment.newInstance()
+                        openFragment(songsFragment)
+                        return@OnNavigationItemSelectedListener true
+                    }
                 }
                 false
             }
+
+
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         navHostFragment = supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
@@ -63,8 +72,9 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.loginFragment || destination.id == R.id.userTypeFragment
                 || destination.id == R.id.registerCompanyFragment ||
-                    destination.id == R.id.forgotPasswordFragment ||
-                destination.id == R.id.registerIndividualFragment) {
+                destination.id == R.id.forgotPasswordFragment ||
+                destination.id == R.id.registerIndividualFragment
+            ) {
                 supportActionBar?.hide()
                 bottomNavigation.visibility = View.GONE
             } else {

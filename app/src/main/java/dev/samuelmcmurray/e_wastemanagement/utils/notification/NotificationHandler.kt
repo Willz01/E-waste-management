@@ -30,11 +30,30 @@ class NotificationHandler(
     }
 
     // method to call
-    fun callNotification() {
+    fun callNotificationForIndividualUser() {
         with(NotificationManagerCompat.from(context)) {
             notify(NOTIFICATION_ID_STRING, builder.build())
         }
     }
+
+    fun callNotificationForCompanyUser() {
+        with(NotificationManagerCompat.from(context)) {
+            notify(NOTIFICATION_ID_STRING, builderCompany.build())
+        }
+    }
+
+
+    private var builderCompany: NotificationCompat.Builder =
+        NotificationCompat.Builder(context.applicationContext, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_baseline_notifications_24)
+            .setContentTitle("Item bid update")
+            .setContentText("Your bid for $itemName has been registered")
+            .setStyle(
+                NotificationCompat.BigTextStyle()
+                    .bigText("Your bid for $itemName has been registered")
+            ).setAutoCancel(true)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
 
     private var builder: NotificationCompat.Builder =
         NotificationCompat.Builder(context.applicationContext, CHANNEL_ID)

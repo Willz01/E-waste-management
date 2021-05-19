@@ -3,7 +3,6 @@ package dev.samuelmcmurray.e_wastemanagement.ui.auth.individual
 import android.app.Activity
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +10,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -22,7 +22,8 @@ import dev.samuelmcmurray.e_wastemanagement.ui.auth.LoginFragment
 import dev.samuelmcmurray.e_wastemanagement.ui.auth.RegisterViewModel
 import java.util.concurrent.Executors
 
-private const val TAG = "RegisterIndividualFragm"
+private const val TAG = "RegisterIndividualFrag"
+
 class RegisterIndividualFragment : Fragment() {
     companion object {
         fun newInstance() = LoginFragment()
@@ -33,7 +34,7 @@ class RegisterIndividualFragment : Fragment() {
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var navController: NavController
     private lateinit var calendarView: DatePicker
-    private lateinit var userID : String
+    private lateinit var userID: String
     private lateinit var user: FirebaseUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,11 +46,16 @@ class RegisterIndividualFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.register_individual_fragment, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.register_individual_fragment,
+            container,
+            false
+        )
         binding.lifecycleOwner = this
 
-        navHostFragment = requireActivity().supportFragmentManager.
-        findFragmentById(R.id.container) as NavHostFragment
+        navHostFragment =
+            requireActivity().supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
         navController = navHostFragment.navController
         calendarView = binding.calendarView
         calendarView.visibility = View.GONE
@@ -76,8 +82,10 @@ class RegisterIndividualFragment : Fragment() {
             val passwordConfirm = binding.editTextPassword2.text.toString()
             val dob = dateOfBirth.text.toString()
 
-            register(firstName, lastName, userName, email, city, country,
-                    password, passwordConfirm, dob)
+            register(
+                firstName, lastName, userName, email, city, country,
+                password, passwordConfirm, dob
+            )
             hideKeyboard()
         }
 
@@ -90,7 +98,7 @@ class RegisterIndividualFragment : Fragment() {
         }
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            calendarView.setOnDateChangedListener  { view, year, month, dayOfMonth ->
+            calendarView.setOnDateChangedListener { view, year, month, dayOfMonth ->
                 val theMonth = month + 1
                 dateOfBirth.text = "$theMonth-$dayOfMonth-$year"
             }
@@ -98,22 +106,24 @@ class RegisterIndividualFragment : Fragment() {
     }
 
     private fun register(
-            firstName: String, lastName: String, userName: String, email: String, city: String,
-            country: String, password: String, passwordConfirm: String, dob: String) {
+        firstName: String, lastName: String, userName: String, email: String, city: String,
+        country: String, password: String, passwordConfirm: String, dob: String
+    ) {
         if (firstName.isNotBlank() && lastName.isNotBlank() && userName.isNotBlank() &&
-                email.isNotBlank() && city.isNotBlank() && country.isNotBlank() && password.isNotBlank()
-                && passwordConfirm.isNotBlank() && (password == passwordConfirm)) {
+            email.isNotBlank() && city.isNotBlank() && country.isNotBlank() && password.isNotBlank()
+            && passwordConfirm.isNotBlank() && (password == passwordConfirm)
+        ) {
             val executor = Executors.newSingleThreadExecutor()
             executor.execute {
                 viewModel.registerIndividualUser(
-                        firstName,
-                        lastName,
-                        userName,
-                        email,
-                        city,
-                        country,
-                        password,
-                        dob
+                    firstName,
+                    lastName,
+                    userName,
+                    email,
+                    city,
+                    country,
+                    password,
+                    dob
                 )
             }
             viewModel.userLiveData.observe(viewLifecycleOwner, Observer {
@@ -128,10 +138,10 @@ class RegisterIndividualFragment : Fragment() {
         } else {
             if (password != passwordConfirm) {
                 Toast.makeText(context, "Passwords must match", Toast.LENGTH_SHORT)
-                        .show()
+                    .show()
             } else {
                 Toast.makeText(context, "All fields must be filled out", Toast.LENGTH_SHORT)
-                        .show()
+                    .show()
             }
         }
         viewModel.userCreatedLiveData.observe(viewLifecycleOwner, Observer {
@@ -147,22 +157,22 @@ class RegisterIndividualFragment : Fragment() {
             val emailSent = it
             if (emailSent) {
                 hideKeyboard()
-                Log.d(TAG, "EmailSent: " )
+                Log.d(TAG, "EmailSent: ")
             }
         })
     }
 
     private fun showHide(view: View) {
-        if (view.visibility == View.GONE){
+        if (view.visibility == View.GONE) {
             view.visibility = View.VISIBLE
-        } else{
+        } else {
             view.visibility = View.GONE
         }
     }
 
     private fun hideKeyboard() {
         val imm: InputMethodManager =
-                requireContext().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+            requireContext().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(requireView().windowToken, 0)
     }
 
