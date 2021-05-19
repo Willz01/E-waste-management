@@ -24,11 +24,14 @@ import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import dev.samuelmcmurray.e_wastemanagement.data.singleton.CompanyUserSingleton
+import dev.samuelmcmurray.e_wastemanagement.data.singleton.IndividualUserSingleton
 import dev.samuelmcmurray.e_wastemanagement.databinding.ActivityMainBinding
 import dev.samuelmcmurray.e_wastemanagement.ui.home.HomeFragment
 import dev.samuelmcmurray.e_wastemanagement.ui.profile.ProfileFragment
 import dev.samuelmcmurray.e_wastemanagement.ui.shops.ShopsFragment
 import dev.samuelmcmurray.e_wastemanagement.ui.upload.UploadFragment
+import kotlinx.coroutines.delay
 
 
 private const val TAG = "MainActivity"
@@ -205,6 +208,8 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.sign_out -> {
                 toolbar.title = "Login"
+                CompanyUserSingleton.getInstance.companyUser = null
+                IndividualUserSingleton.getInstance.individualUser = null
                 popFullBackstack()
                 Firebase.auth.signOut()
                 return true

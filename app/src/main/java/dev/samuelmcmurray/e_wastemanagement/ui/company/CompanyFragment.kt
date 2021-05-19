@@ -22,6 +22,7 @@ import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+
 import dev.samuelmcmurray.e_wastemanagement.R
 import dev.samuelmcmurray.e_wastemanagement.data.model.CompanyUser
 

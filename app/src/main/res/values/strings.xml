@@ -69,7 +69,8 @@
     <string name="home">Home</string>
     <string name="companies">Companies</string>
     <string name="sign_out">Sign Out</string>
-    <string name="companyUserBoomer">"This view is available for only individual users"</string
+    <string name="companyUserBoomer">"This view is available for only individual users"</string>
+
     <string-array name="type_array">
         <item>All</item>
         <item>Phone/Laptop</item>
