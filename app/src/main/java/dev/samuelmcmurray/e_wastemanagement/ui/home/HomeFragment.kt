@@ -48,21 +48,20 @@ class HomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         binding.lifecycleOwner = this
         progressBar = binding.progressBar2
         progressBar.visibility = View.GONE
+        Log.d(TAG, "onCreateView: ${binding.root}")
         return binding.root
     }
 
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         if (CompanyUserSingleton.getInstance.companyUser == null &&
                 IndividualUserSingleton.getInstance.individualUser == null) {
             getUser()
         }
-
         loadAll()
-
-
         // spinner
         val spinner: Spinner = view.findViewById(R.id.spinner)
         ArrayAdapter.createFromResource(
@@ -76,8 +75,6 @@ class HomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         }
 
         spinner.onItemSelectedListener = this
-
-        super.onViewCreated(view, savedInstanceState)
     }
 
     private fun loadAll() {

@@ -59,6 +59,16 @@
     <string name="city">City</string>
     <string name="country">Country</string>
     <string name="channel_name">Bid notification</string>
+    <string name="hours">Hours:</string>
+    <string name="hours_of_op">M-F: 08-18 Sat: 09-16 Sun: 11-16</string>
+    <string name="address2">Address:</string>
+    <string name="phone">Phone Number:</string>
+    <string name="email">Email:</string>
+    <string name="rating">Rating:</string>
+    <string name="company_image">Company Image</string>
+    <string name="home">Home</string>
+    <string name="companies">Companies</string>
+    <string name="sign_out">Sign Out</string>
 
 
     <string-array name="type_array">

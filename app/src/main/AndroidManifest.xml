@@ -8,6 +8,9 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
 
     <queries>
@@ -25,6 +28,7 @@
         android:theme="@style/Theme.EwasteManagement">
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.EwasteManagement.NoActionBar"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>

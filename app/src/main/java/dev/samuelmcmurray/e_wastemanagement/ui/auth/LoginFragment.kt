@@ -43,8 +43,8 @@ class LoginFragment : Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         val loginButton = binding.buttonLogin
@@ -57,6 +57,7 @@ class LoginFragment : Fragment() {
 
             val email: String = editTextEmail.text.toString().trim()
             val password: String = editTextPassword.text.toString()
+            hideKeyboard()
             login(email, password)
         }
 
