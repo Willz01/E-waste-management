@@ -8,9 +8,13 @@
     <item
         android:id="@+id/upload_fragment"
         android:icon="@drawable/ic_baseline_upload_24"
-        android:title="Upload"/>
+        android:title="Upload" />
+    <item
+        android:id="@+id/companyBidsFragment"
+        android:icon="@drawable/ic_baseline_bid_24"
+        android:title="Company bids" />
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_baseline_account_circle_24"
-        android:title="Profile"/>
+        android:title="Profile" />
 </menu>

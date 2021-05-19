@@ -32,6 +32,7 @@ import dev.samuelmcmurray.e_wastemanagement.ui.upload.UploadFragment
 
 
 private const val TAG = "MainActivity"
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var toolbar: Toolbar
@@ -84,9 +85,17 @@ class MainActivity : AppCompatActivity() {
                         openFragment(songsFragment)
                         return@OnNavigationItemSelectedListener true
                     }
+                    R.id.companyBidsFragment -> {
+                        toolbar.title = "Company bids"
+                        val songsFragment = CompanyBidsFragment.newInstance()
+                        openFragment(songsFragment)
+                        return@OnNavigationItemSelectedListener true
+                    }
                 }
                 false
             }
+
+
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         appBarConfiguration = AppBarConfiguration(
             setOf

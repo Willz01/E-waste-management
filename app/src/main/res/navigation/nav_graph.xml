@@ -112,4 +112,11 @@
         android:name="dev.samuelmcmurray.e_wastemanagement.ui.itemDetail.ItemFragment"
         android:label="fragment_item"
         tools:layout="@layout/fragment_item" />
+
+    <fragment
+        android:id="@+id/companyBidsFragment"
+        android:name="dev.samuelmcmurray.e_wastemanagement.CompanyBidsFragment"
+        android:label="fragment_company_bids"
+        tools:layout="@layout/fragment_company_bids" />
+
 </navigation>
