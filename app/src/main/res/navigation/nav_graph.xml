@@ -17,11 +17,13 @@
     <fragment
         android:id="@+id/uploadFragment"
         android:name="dev.samuelmcmurray.e_wastemanagement.ui.upload.UploadFragment"
-        android:label="Upload" />
+        android:label="Upload"
+        tools:layout="@layout/upload_fragment"/>
     <fragment
         android:id="@+id/loginFragment"
         android:name="dev.samuelmcmurray.e_wastemanagement.ui.auth.LoginFragment"
-        android:label="LoginFragment" >
+        android:label="LoginFragment"
+        tools:layout="@layout/login_fragment">
         <action
             android:id="@+id/action_loginFragment_to_userTypeFragment"
             app:destination="@id/userTypeFragment" />
@@ -35,7 +37,8 @@
     <fragment
         android:id="@+id/userTypeFragment"
         android:name="dev.samuelmcmurray.e_wastemanagement.ui.auth.UserTypeFragment"
-        android:label="UserTypeFragment" >
+        android:label="UserTypeFragment"
+        tools:layout="@layout/user_type_fragment">
         <action
             android:id="@+id/action_userTypeFragment_to_registerCompanyFragment"
             app:destination="@id/registerCompanyFragment" />
@@ -49,7 +52,8 @@
     <fragment
         android:id="@+id/registerCompanyFragment"
         android:name="dev.samuelmcmurray.e_wastemanagement.ui.auth.company.RegisterCompanyFragment"
-        android:label="RegisterCompanyFragment" >
+        android:label="RegisterCompanyFragment"
+        tools:layout="@layout/register_company_fragment">
         <action
             android:id="@+id/action_registerCompanyFragment_to_userTypeFragment"
             app:destination="@id/userTypeFragment" />
@@ -60,7 +64,8 @@
     <fragment
         android:id="@+id/registerIndividualFragment"
         android:name="dev.samuelmcmurray.e_wastemanagement.ui.auth.individual.RegisterIndividualFragment"
-        android:label="RegisterIndividualFragment" >
+        android:label="RegisterIndividualFragment"
+        tools:layout="@layout/register_individual_fragment">
         <action
             android:id="@+id/action_registerIndividualFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -71,23 +76,47 @@
     <fragment
         android:id="@+id/forgotPasswordFragment"
         android:name="dev.samuelmcmurray.e_wastemanagement.ui.auth.ForgotPasswordFragment"
-        android:label="ForgotPasswordFragment" >
+        android:label="ForgotPasswordFragment"
+        tools:layout="@layout/fragment_forgot_password">
         <action
             android:id="@+id/action_forgotPasswordFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="dev.samuelmcmurray.ui.welcome.WelcomeFragment"
-        android:label="WelcomeFragment" />
+        android:name="dev.samuelmcmurray.e_wastemanagement.ui.welcome.WelcomeFragment"
+        android:label="WelcomeFragment"
+        tools:layout="@layout/welcome_fragment"/>
     <fragment
         android:id="@+id/profileFragment"
         android:name="dev.samuelmcmurray.e_wastemanagement.ui.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
+        android:id="@+id/companyFragment"
+        android:name="dev.samuelmcmurray.e_wastemanagement.ui.company.CompanyFragment"
+        android:label="Company"
+        tools:layout="@layout/company_fragment" />
+    <fragment
+        android:id="@+id/shopsFragment"
+        android:name="dev.samuelmcmurray.e_wastemanagement.ui.shops.ShopsFragment"
+        android:label="Companies"
+        tools:layout="@layout/shops_fragment" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="dev.samuelmcmurray.e_wastemanagement.MainActivity"
+        android:label="app_bar_main"
+        tools:layout="@layout/app_bar_main" />
+    <fragment
+        android:id="@+id/itemFragment"
+        android:name="dev.samuelmcmurray.e_wastemanagement.ui.itemDetail.ItemFragment"
+        android:label="fragment_item"
+        tools:layout="@layout/fragment_item" />
+
+    <fragment
         android:id="@+id/companyBidsFragment"
         android:name="dev.samuelmcmurray.e_wastemanagement.CompanyBidsFragment"
         android:label="fragment_company_bids"
         tools:layout="@layout/fragment_company_bids" />
+
 </navigation>

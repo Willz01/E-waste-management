@@ -110,9 +110,8 @@ class RegisterIndividualFragment : Fragment() {
         country: String, password: String, passwordConfirm: String, dob: String
     ) {
         if (firstName.isNotBlank() && lastName.isNotBlank() && userName.isNotBlank() &&
-            email.isNotBlank() && city.isNotBlank() && country.isNotBlank() && password.isNotBlank()
-            && passwordConfirm.isNotBlank() && (password == passwordConfirm)
-        ) {
+                email.isNotBlank() && city.isNotBlank() && country.isNotBlank() && password.isNotBlank()
+                && passwordConfirm.isNotBlank() && (password == passwordConfirm) && dob.isNotBlank()) {
             val executor = Executors.newSingleThreadExecutor()
             executor.execute {
                 viewModel.registerIndividualUser(

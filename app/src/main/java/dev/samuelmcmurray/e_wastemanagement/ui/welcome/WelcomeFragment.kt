@@ -1,4 +1,4 @@
-package dev.samuelmcmurray.ui.welcome
+package dev.samuelmcmurray.e_wastemanagement.ui.welcome
 
 import android.os.Bundle
 import android.view.LayoutInflater

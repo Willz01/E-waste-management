@@ -83,6 +83,7 @@ class RegisterRepository {
             )
 
         val user = hashMapOf(
+            "uid" to uid,
             "firstName" to firstName,
             "lastName" to lastName,
             "userName" to userName,
@@ -143,6 +144,7 @@ class RegisterRepository {
             )
 
         val user = hashMapOf(
+            "uid" to uid,
             "companyName" to companyName,
             "about" to about,
             "userName" to userName,

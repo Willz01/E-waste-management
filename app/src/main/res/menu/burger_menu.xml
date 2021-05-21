@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:checkableBehavior="single"
+        android:visible="true">
+        <item
+            android:id="@+id/home_fragment"
+            android:enabled="true"
+            android:icon="@drawable/home_icon"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/shops_fragment"
+            android:enabled="true"
+            android:icon="@drawable/ic_find_activity"
+            android:title="@string/companies" />
+        <item
+            android:id="@+id/sign_out"
+            android:enabled="true"
+            android:icon="@drawable/ic_signout_24"
+            android:title="@string/sign_out" />
+    </group>
+</menu>

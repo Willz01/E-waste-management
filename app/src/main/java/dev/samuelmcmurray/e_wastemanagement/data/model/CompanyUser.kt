@@ -18,6 +18,6 @@ class CompanyUser(
     var takesOther: Boolean,
     var websiteURL: String
 ) {
-    private var rating: Double = 0.0
-    private var imageURL: String = ""
+    var rating: Int = 0
+    var imageURL: String = ""
 }

@@ -10,7 +10,7 @@
             type="dev.samuelmcmurray.e_wastemanagement.ui.auth.LoginViewModel" />
         <variable
             name="uiController"
-            type="dev.samuelmcmurray.ui.welcome.WelcomeFragment" />
+            type="dev.samuelmcmurray.e_wastemanagement.ui.welcome.WelcomeFragment" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout"
