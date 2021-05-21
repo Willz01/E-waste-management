@@ -1,6 +1,5 @@
 package dev.samuelmcmurray.e_wastemanagement
 
-import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -31,7 +30,7 @@ import dev.samuelmcmurray.e_wastemanagement.ui.home.HomeFragment
 import dev.samuelmcmurray.e_wastemanagement.ui.profile.ProfileFragment
 import dev.samuelmcmurray.e_wastemanagement.ui.shops.ShopsFragment
 import dev.samuelmcmurray.e_wastemanagement.ui.upload.UploadFragment
-import kotlinx.coroutines.delay
+
 
 
 private const val TAG = "MainActivity"
@@ -57,10 +56,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.appBarMain.toolbar)
         drawerLayout = binding.drawerLayout
-        toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar,
-            R.string.nav_app_bar_open_drawer_description, R.string.nav_app_bar_navigate_up_description)
-        val navigationView = binding.navView
-        drawerLayout.addDrawerListener(toggle)
 
         navHostFragment = supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
         Log.d(TAG, "onCreate: $navHostFragment")
@@ -100,15 +95,15 @@ class MainActivity : AppCompatActivity() {
 
 
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        appBarConfiguration = AppBarConfiguration(
-            setOf
-                (R.id.home_fragment,
-                R.id.shops_fragment,
-                R.id.sign_out
-            ), drawerLayout
-        )
-        navigationView.setupWithNavController(navController)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+//        appBarConfiguration = AppBarConfiguration(
+//            setOf
+//                (R.id.home_fragment,
+//                R.id.shops_fragment,
+//                R.id.sign_out
+//            ), drawerLayout
+//        )
+//        navigationView.setupWithNavController(navController)
+//        setupActionBarWithNavController(navController, appBarConfiguration)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.loginFragment || destination.id == R.id.userTypeFragment
@@ -142,16 +137,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        FirebaseAuth.IdTokenListener { firebaseAuth ->
-            firebaseAuth.addIdTokenListener(FirebaseAuth.IdTokenListener {
-                auth ->
-                if (auth.currentUser == null) {
-                    navController.navigate(R.id.loginFragment)
-                } else {
-                    navController.navigate(R.id.homeFragment)
-                }
-            })
-        }
     }
 
     override fun onBackPressed() {
@@ -175,23 +160,23 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        Log.d(TAG, "onSupportNavigateUp: here")
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-    }
+//    override fun onSupportNavigateUp(): Boolean {
+//        Log.d(TAG, "onSupportNavigateUp: here")
+//        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+//    }
 
     override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onPostCreate(savedInstanceState, persistentState)
         toggle.syncState()
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        toggle.onConfigurationChanged(newConfig)
-    }
+//    override fun onConfigurationChanged(newConfig: Configuration) {
+//        super.onConfigurationChanged(newConfig)
+//        toggle.onConfigurationChanged(newConfig)
+//    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        Log.d(TAG, "onOptionsItemSelected: ${item}")
+        Log.d(TAG, "onOptionsItemSelected: $item")
 
         when (item.itemId) {
             R.id.home_fragment -> {
