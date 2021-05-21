@@ -2,16 +2,16 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardview_clickable"
-    android:layout_width="150dp"
-    android:layout_height="190dp"
+    android:layout_width="350dp"
+    android:layout_height="350dp"
     android:layout_margin="20dp"
     android:clickable="true"
     android:focusable="true"
-    android:padding="10dp"
-    cardview:cardMaxElevation="10dp"
     android:foreground="?android:attr/selectableItemBackground"
+    android:padding="10dp"
     cardview:cardCornerRadius="14dp"
-    cardview:cardElevation="8dp">
+    cardview:cardElevation="8dp"
+    cardview:cardMaxElevation="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -32,8 +32,8 @@
 
                 <ImageView
                     android:id="@+id/item_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:background="@color/black"
                     android:contentDescription="@string/item_image_1"
                     android:scaleType="centerCrop"
@@ -59,6 +59,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
