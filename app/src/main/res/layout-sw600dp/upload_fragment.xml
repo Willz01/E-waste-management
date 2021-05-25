@@ -16,16 +16,18 @@
         tools:context=".LoginFragment">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="15dp"
+            android:layout_marginBottom="16dp"
             android:background="@null"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -38,8 +40,8 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="727dp"
-                    android:layout_height="958dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center">
 
                     <!--Recycler view for uploaded images-->
@@ -58,7 +60,7 @@
                     <ImageView
                         android:id="@+id/imageUpload"
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="400dp"
                         android:background="@color/white"
                         app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -73,11 +75,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginBottom="64dp"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal"
                         app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent">
 
                         <ImageButton
@@ -140,22 +143,22 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
                         android:textColorHint="@color/black"
                         app:layout_constraintBottom_toTopOf="@+id/textInputLayout3"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="parent">
 
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextTitle"
+                            android:id="@+id/editTextModel"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/title"
-                            android:inputType="text"
+                            android:hint="@string/model"
+                            android:inputType="date|text"
                             android:textColorHint="@color/black"
                             android:textSize="16sp" />
-
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -169,15 +172,6 @@
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent">
 
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextModel"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/model"
-                            android:inputType="date|text"
-                            android:textColorHint="@color/black"
-                            android:textSize="16sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -246,6 +240,21 @@
                         android:text="@string/upload_new_item"
                         app:layout_constraintBottom_toBottomOf="parent"
                         tools:layout_editor_absoluteX="20dp" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="12dp"
+                        android:hint="@string/title"
+                        android:inputType="text"
+                        android:textColorHint="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
