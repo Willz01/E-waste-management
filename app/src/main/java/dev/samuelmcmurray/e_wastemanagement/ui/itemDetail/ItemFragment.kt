@@ -109,7 +109,7 @@ class ItemFragment(var item: Item) : Fragment() {
                         ItemUtils.newInstance().addBid(
                             item,
                             CompanyUserSingleton.getInstance.companyUser?.companyName.toString(),
-                            priceTextView.text.toString().toInt()
+                            priceTextView.text.toString().toDouble().toInt()
                         )
                         val notificationHandler: NotificationHandler =
                             NotificationHandler(
